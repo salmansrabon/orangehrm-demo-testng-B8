@@ -1,1 +1,32 @@
-[{"firstName":"Test","lastName":"User","password":"P@ssword123","username":"testuser123"},{"firstName":"Jean","lastName":"Cremin","password":"35yvp20mmxqr","username":"deanne.dietrich"},{"firstName":"Cher","lastName":"Haley","password":"vlu0jtjw99heer3","username":"dorian.koelpin"}]
+[
+  {
+    "firstName": "Admin",
+    "lastName": "Last",
+    "password": "admin123",
+    "username": "admin"
+  },
+  {
+    "firstName": "Test",
+    "lastName": "User",
+    "password": "P@ssword123",
+    "username": "testuser123"
+  },
+  {
+    "firstName": "Jean",
+    "lastName": "Cremin",
+    "password": "35yvp20mmxqr",
+    "username": "deanne.dietrich"
+  },
+  {
+    "firstName": "Cher",
+    "lastName": "Haley",
+    "password": "vlu0jtjw99heer3",
+    "username": "dorian.koelpin"
+  },
+  {
+    "firstName": "Willow",
+    "lastName": "Christiansen",
+    "password": "0qlj23ctpuvvn90",
+    "username": "annette.walter"
+  }
+]
