@@ -3,7 +3,9 @@ package testrunner;
 import com.github.javafaker.Faker;
 import config.EmployeeModel;
 import config.Setup;
+import io.qameta.allure.Allure;
 import org.json.simple.parser.ParseException;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,12 +16,23 @@ import utils.Utils;
 import java.io.IOException;
 
 public class DashboardTestRunner extends Setup {
-    @BeforeTest
+    DashboardPage dashboardPage;
+    @BeforeTest(groups = "smoke")
     public void login(){
         LoginPage loginPage=new LoginPage(driver);
         loginPage.doLogin("admin","admin123");
+        dashboardPage=new DashboardPage(driver);
+        dashboardPage.menuItems.get(1).click(); //click PIM
     }
-    @Test(priority = 1)
+    @Test(priority = 1, groups = "smoke", description ="Check if search button is working" )
+    public void clickonSearchButton(){
+        driver.findElement(By.cssSelector("[type='submit']")).click();
+    }
+    @Test(priority = 2, groups = "smoke", description = "Check if reset button is working")
+    public void clickonResetButton(){
+        driver.findElement(By.cssSelector("[type=reset]")).click();
+    }
+    @Test(priority = 3, description = "Check if new user is created successfully")
     public void createUser() throws IOException, ParseException, InterruptedException {
         DashboardPage dashboardPage=new DashboardPage(driver);
         Faker faker=new Faker();
@@ -41,7 +54,7 @@ public class DashboardTestRunner extends Setup {
         if(textTitleExpected.contains("Personal Details")){
             Utils.saveEmployeeInfo(model);
         }
-
+        Allure.description("User created successfully");
 
     }
 }
